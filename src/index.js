@@ -10,7 +10,9 @@ const liCharCount = document.querySelector('li[data-testid="character-count"]');
 
 const liCharNoSpacesCount = document.querySelector('li[data-testid="character-no-spaces-count"]');
 
+const liNumberCount = document.querySelector('li[data-testid="number-count"]');
 
+const liNumberSum = document.querySelector('li[data-testid="number-sum"]')
 
 textBox.addEventListener('input',function(){
 
@@ -20,6 +22,9 @@ textBox.addEventListener('input',function(){
     
     liCharNoSpacesCount.textContent='Caracteres sin espacios :'+analyzer.getCharacterCountExcludingSpaces(this.value);
 
+    liNumberCount.textContent='Números :'+analyzer.getNumberCount(this.value);
+
+    liNumberSum.textContent='Suma Números :'+analyzer.getNumberSum(this.value);
 
 });
 

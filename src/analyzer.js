@@ -5,7 +5,7 @@ const analyzer = {
    let noSpace= text.trim();
 
    if( noSpace != ''){
-    let words = noSpace.split(' ');
+    let words = noSpace.split(/\s+/);
     return words.length;
    }else{
     return 0;
@@ -38,12 +38,28 @@ return text.length;
   },
   getAverageWordLength: (text) => {    
     //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
+  
   },
   getNumberCount: (text) => {
     //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
+   
+    let regex = /[+-]?\d+(?:\.\d+)?/g;
+    return text.match(regex).length;
+
   },
   getNumberSum: (text) => {
     //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
+
+    let regex = /[+-]?\d+(?:\.\d+)?/g;
+    let textNumbers = text.match(regex);
+
+    let numberSum = 0;
+    for(let i in textNumbers)
+    {
+      numberSum += parseFloat(textNumbers[i]);
+    }
+
+    return numberSum;
   },
 };
 

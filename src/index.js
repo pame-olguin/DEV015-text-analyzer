@@ -12,7 +12,9 @@ const liCharNoSpacesCount = document.querySelector('li[data-testid="character-no
 
 const liNumberCount = document.querySelector('li[data-testid="number-count"]');
 
-const liNumberSum = document.querySelector('li[data-testid="number-sum"]')
+const liNumberSum = document.querySelector('li[data-testid="number-sum"]');
+
+const liAverage = document.querySelector('li[data-testid="word-length-average"]');
 
 textBox.addEventListener('input',function(){
 
@@ -25,6 +27,8 @@ textBox.addEventListener('input',function(){
     liNumberCount.textContent='Números :'+analyzer.getNumberCount(this.value);
 
     liNumberSum.textContent='Suma Números :'+analyzer.getNumberSum(this.value);
+
+    liAverage.textContent = 'Promedio Longitud :'+analyzer.getAverageWordLength(this.value);
 
 });
 

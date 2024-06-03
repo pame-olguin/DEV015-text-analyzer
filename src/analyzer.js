@@ -38,13 +38,37 @@ return text.length;
   },
   getAverageWordLength: (text) => {    
     //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
-  
+    
+    let noSpace= text.trim();
+
+   if( noSpace != ''){
+    let words = noSpace.split(/\s+/);
+    let wordCount = words.length;
+    let sumLength = 0;
+    for(let i in words)
+      {
+          sumLength += words[i].length;
+      }
+      let avg = sumLength/wordCount;
+      return avg.toFixed(2);
+   }else{
+    return 0;
+   }
+
   },
   getNumberCount: (text) => {
     //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
    
     let regex = /[+-]?\d+(?:\.\d+)?/g;
-    return text.match(regex).length;
+    let numbers = text.match(regex);
+
+    if( numbers )
+    {
+      return numbers.length;
+    }
+    else{
+      return 0;
+    }
 
   },
   getNumberSum: (text) => {

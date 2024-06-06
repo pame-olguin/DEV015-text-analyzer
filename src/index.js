@@ -37,6 +37,17 @@ const botonReset = document.getElementById("reset-button");
 botonReset.addEventListener('click',function(){
 
     textBox.value='';
+   
+    liWordCount.textContent='Palabras :0';
+
+    liCharCount.textContent='Caracteres :0';
     
+    liCharNoSpacesCount.textContent='Caracteres sin espacios :0';
+
+    liNumberCount.textContent='Números :0';
+
+    liNumberSum.textContent='Suma Números :0';
+
+    liAverage.textContent = 'Promedio Longitud :0';
 });
 

@@ -23,7 +23,7 @@ border: 1px solid rgb(132, 124, 202);
 float: left;
 width: 47%;
 background-color:rgba(247, 127, 147, 0.205) ;
-
+font-size: 18px;
 }
 
 
@@ -43,7 +43,7 @@ height: 60px;
 color:rgb(10, 10, 10);
 margin-top: 15px;
 border-radius: 10px;
-
+font-size: 16px;
 
 }
 footer{

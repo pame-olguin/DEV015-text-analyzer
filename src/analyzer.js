@@ -51,7 +51,7 @@ return text.length;
           sumLength += words[i].length;
       }
       let avg = sumLength/wordCount;
-      return avg.toFixed(2);
+      return Number(avg.toFixed(2));
    }else{
     return 0;
    }

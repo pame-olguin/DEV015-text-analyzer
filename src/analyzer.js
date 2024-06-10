@@ -41,10 +41,11 @@ return text.length;
     
     let noSpace= text.trim();
 
-   if( noSpace != ''){
-    let words = noSpace.split(/\s+/);
-    let wordCount = words.length;
-    let sumLength = 0;
+    if (noSpace !== '') {
+      let cleanedText = noSpace.replace(/[^\w\s]/g, '').replace(/\s+/g, ' ');
+      let words = cleanedText.split(' ');
+      let wordCount = words.length;
+      let sumLength = 0;
     for(let i in words)
       {
           sumLength += words[i].length;

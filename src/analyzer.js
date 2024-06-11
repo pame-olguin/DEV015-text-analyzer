@@ -22,18 +22,16 @@ return text.length;
   getCharacterCountExcludingSpaces: (text) => {
     //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.
  
- 
     let charNoSpace= 0;
 
     for(let c of text)
       {
-          if( c!=' ' ){
+          if( c!=' ' && c!=',' && c!='.'){
               charNoSpace++;
           }
       }
 
       return charNoSpace;
- 
  
   },
   getAverageWordLength: (text) => {    
@@ -42,7 +40,8 @@ return text.length;
     let noSpace= text.trim();
 
     if (noSpace !== '') {
-      let cleanedText = noSpace.replace(/[^\w\s]/g, '').replace(/\s+/g, ' ');
+      let cleanedText = noSpace.replace(/\s+/g, ' ');
+      
       let words = cleanedText.split(' ');
       let wordCount = words.length;
       let sumLength = 0;
@@ -60,12 +59,21 @@ return text.length;
   getNumberCount: (text) => {
     //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
    
-    let regex = /[+-]?\d+(?:\.\d+)?/g;
-    let numbers = text.match(regex);
+    //let regex = /[+-]?\d+(?:\.\d+)?/g;
+    let words = text.split(/\s+/);
 
-    if( numbers )
+    if( words )
     {
-      return numbers.length;
+      let countNumbers = 0;
+      for(let i in words)
+        {
+           let w = words[i].trim();
+           if( w != "" && !isNaN(w) )
+            {
+              countNumbers++;
+            }
+        }
+      return countNumbers;
     }
     else{
       return 0;
@@ -75,16 +83,24 @@ return text.length;
   getNumberSum: (text) => {
     //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
 
-    let regex = /[+-]?\d+(?:\.\d+)?/g;
-    let textNumbers = text.match(regex);
+    let words = text.split(/\s+/);
 
-    let numberSum = 0;
-    for(let i in textNumbers)
+    if( words )
     {
-      numberSum += parseFloat(textNumbers[i]);
+      let sumNumbers = 0;
+      for(let i in words)
+        {
+           let w = words[i].trim();
+           if( w != "" && !isNaN(w) )
+            {
+              sumNumbers += parseFloat(w);
+            }
+        }
+      return sumNumbers;
     }
-
-    return numberSum;
+    else{
+      return 0;
+    }
   },
 };
 

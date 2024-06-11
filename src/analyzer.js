@@ -2,105 +2,123 @@ const analyzer = {
   getWordCount: (text) => {
     //TODO: esta función debe retornar el recuento de palabras que se encuentran en el parámetro `text` de tipo `string`.
   
-   let noSpace= text.trim();
+    const noSpace = text.trim();
+    let wLength   = 0;
 
-   if( noSpace != ''){
-    let words = noSpace.split(/\s+/);
-    return words.length;
-   }else{
-    return 0;
-   }
+    if( noSpace !== '' ){
+      const words = noSpace.split(/\s+/);
+      wLength = words.length;
+    }
+
+    return wLength;
   
   },
   getCharacterCount: (text) => {
     //TODO: esta función debe retornar el recuento de caracteres que se encuentran en el parámetro `text` de tipo `string`.
- 
-return text.length;
 
- 
+    return text.length;
   },
   getCharacterCountExcludingSpaces: (text) => {
     //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.
  
     let charNoSpace= 0;
 
-    for(let c of text)
-      {
-          if( c!=' ' && c!=',' && c!='.'){
-              charNoSpace++;
-          }
+    for(const c of text)
+    {
+      if( c!==' ' && c!==',' && c!=='.'){
+        charNoSpace++;
       }
+    }
 
-      return charNoSpace;
+    return charNoSpace;
  
   },
   getAverageWordLength: (text) => {    
     //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
     
-    let noSpace= text.trim();
+    const noSpace= text.trim();
+    let numFixed = 0;
 
     if (noSpace !== '') {
-      let cleanedText = noSpace.replace(/\s+/g, ' ');
+      const cleanedText = noSpace.replace(/\s+/g, ' ');
       
-      let words = cleanedText.split(' ');
-      let wordCount = words.length;
+      const words = cleanedText.split(' ');
+      const wordCount = words.length;
       let sumLength = 0;
-    for(let i in words)
+      for(const i in words)
       {
-          sumLength += words[i].length;
+        sumLength += words[i].length;
       }
-      let avg = sumLength/wordCount;
-      return Number(avg.toFixed(2));
-   }else{
-    return 0;
-   }
+      const avg = sumLength/wordCount;
+      numFixed = Number(avg.toFixed(2));
+    }
+  
+    return numFixed;
 
   },
   getNumberCount: (text) => {
     //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
    
     //let regex = /[+-]?\d+(?:\.\d+)?/g;
-    let words = text.split(/\s+/);
-
+    const words = text.split(/\s+/);
+    let countNumbers = 0;
     if( words )
     {
-      let countNumbers = 0;
-      for(let i in words)
+      for(let i=0; i<words.length; i++)
+      {
+        let w = words[i].trim();
+        const dots = w.split('.');
+
+        if( dots && dots.length>2 )
         {
-           let w = words[i].trim();
-           if( w != "" && !isNaN(w) )
-            {
-              countNumbers++;
-            }
+          w = w.slice(0,w.lastIndexOf('.'));
         }
-      return countNumbers;
-    }
-    else{
-      return 0;
+
+        if( w !== "" && !isNaN(w) )
+        {
+          countNumbers++;
+        }
+      }
+      
     }
 
+    return countNumbers;
   },
   getNumberSum: (text) => {
     //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
 
-    let words = text.split(/\s+/);
+    const words = text.split(/\s+/);
+    let sumNumbersFixed = 0;
 
     if( words )
     {
       let sumNumbers = 0;
-      for(let i in words)
+      for(let i=0; i<words.length; i++)
+      {
+        let w = words[i].trim();
+        const dots = w.split('.');
+
+        if( dots && dots.length>2 )
         {
-           let w = words[i].trim();
-           if( w != "" && !isNaN(w) )
-            {
-              sumNumbers += parseFloat(w);
-            }
+          w = w.slice(0,w.lastIndexOf('.'));
         }
-      return sumNumbers;
+
+        if( w !== "" && !isNaN(w) )
+        {
+          sumNumbers += parseFloat(w);
+        }
+      }
+
+      const sumString = ""+sumNumbers;
+
+      if( sumString.indexOf('.') >= 0 ){
+        sumNumbersFixed = Number(sumNumbers.toFixed(1));
+      }else{
+        sumNumbersFixed = Number(sumNumbers);
+      }
     }
-    else{
-      return 0;
-    }
+  
+    return sumNumbersFixed;
   },
 };
 

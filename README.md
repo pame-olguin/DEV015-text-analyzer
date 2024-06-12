@@ -7,7 +7,8 @@
 * [3. Resumen del proyecto]
 * [4. Funcionalidades]
 * [5. Test]
-* [6. Consultas]
+* [6. Dudas y consultas]
+* [7. Credenciales]
 
 ## 1. COMO EMPEZAR : 
 

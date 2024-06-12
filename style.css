@@ -1,0 +1,54 @@
+header {
+    color: rgb(41, 38, 44);
+    text-align: center;
+}
+
+main{
+text-align: center;
+}
+
+ul{
+    width: 600px;
+    list-style: none;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.elemento {
+
+color: rgb(14, 14, 124);
+padding: 1%;
+border: 1px solid rgb(132, 124, 202);
+float: left;
+width: 47%;
+background-color:rgba(247, 127, 147, 0.205) ;
+font-size: 18px;
+}
+
+
+textarea[name="user-input"] {
+    border-color: rgb(58, 58, 145);
+    width: 600px;
+    height: 200px;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+#reset-button{
+background-color: rgba(209, 64, 202, 0.829);
+border-color: rgb(255, 214, 245);
+width: 150px;
+height: 60px;
+color:rgb(10, 10, 10);
+margin-top: 15px;
+border-radius: 10px;
+font-size: 16px;
+
+}
+footer{
+
+    color: rgb(122, 98, 133);
+    text-align:center;
+    margin-top: 40px;
+}

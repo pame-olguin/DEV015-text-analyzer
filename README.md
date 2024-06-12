@@ -91,5 +91,5 @@ Escribir al correo : pame.ertek@gmail.com
 ## 7. Credenciales 
 
 Esta aplicación fue creada por: Pamela Olguín .Estudiante de Laboratoria. 2024.
-
+correo : pame.ertek@gmail.com
 
